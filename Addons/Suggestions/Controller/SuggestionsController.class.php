@@ -44,7 +44,7 @@ class SuggestionsController extends AddonsController{
 				$uids
 			];
 
-			$members = M('member')->where($map)->field('uid,nickname,truename,mobile')->select();
+			$members = M('user')->where($map)->field('uid,nickname,truename,mobile')->select();
 			foreach ($members as $m){
 				!empty($m['truename']) || $m['truename'] = $m['nickname'];
 				$user[$m['uid']] = $m;
@@ -64,9 +64,10 @@ class SuggestionsController extends AddonsController{
 	function suggestion(){
 		$config = getAddonConfig('Suggestions');
 		$this->assign($config);
-		dump($config);exit;
+
 		$data['uid'] = $this->mid;
-		$user = M('member')->where($data)->find();
+
+		$user = M('user')->where($data)->find();
 		$this->assign('user',$user);
 
 		if(IS_POST){
@@ -79,7 +80,7 @@ class SuggestionsController extends AddonsController{
 				$member['mobile']   =   $mobile;
 			}
 			if(!empty($member)){
-				M('member')->where($data)->save($member);
+				M('user')->where($data)->save($member);
 			}
 
 			$data['cTime']  =   time();

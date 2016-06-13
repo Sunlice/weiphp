@@ -30,7 +30,7 @@ class UserCenterController extends AddonsController {
 		// 搜索条件
 		$map ['u.status'] = array (
 				'gt',
-				0 
+				0
 		);
 		$map ['f.token'] = get_token ();
 		$map ['f.has_subscribe'] = 1;

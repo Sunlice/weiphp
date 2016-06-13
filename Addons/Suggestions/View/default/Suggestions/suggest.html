@@ -1,0 +1,43 @@
+<include file="Public/mobile_head"/>
+
+<!--<link rel="stylesheet" type="text/css" href="{:ADDON_PUBLIC_PATH}/suggestion.css" media="all">-->
+
+<body>
+    <div class="container body">
+        <img src="{:ADDON_PUBLIC_PATH}/images/suggest_head.png" width="100%"/>
+        <div class="p_10">
+        <form method="post">
+            <div id="tab1" class="tab-pane">
+                <if condition="$need_truename">
+                    <div class="form-item cf">
+                        <label class="item-label">姓名</label>
+                        <div class="controls">
+                        <input type="text" class="text input-medium" name="truename" value="{$user.truename}">
+                        </div>
+                    </div>
+                </if>
+                <if condition="$need_mobile">
+                <div class="form-item cf">
+                    <label class="item-label">联系方式</label>
+                    <div class="controls">
+                        <input type="text" class="text input-large" name="mobile" value="{$user.mobile}"
+                    </div>
+                </div>
+                </if>
+                <div class="form-item cf">
+                    <label class="item-label">内容</label>
+                    <div class="controls">
+                        <label class="textarea input-large"><textarea name="content"></textarea> </label>
+                    </div>
+                </div>
+                <div class="form-item cf tb pt_10">
+                    <button class="home_btn submit-btn ajax-post mb_10 flex_l mr_10" id="submit" type="submit" target-form="form-horizontal">提交</button>
+                    <a class="home_btn btn-return mb_10 flex_1 ml_10" href="javascript:;">返回</a>
+                </div>
+            </div>
+        </form>
+    </div>
+        <p class="copyright">2016&copy;Wchuang</p>
+    </div>
+</body>
+</html>

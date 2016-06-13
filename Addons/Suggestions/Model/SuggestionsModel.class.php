@@ -7,5 +7,5 @@ use Think\Model;
  * Suggestions模型
  */
 class SuggestionsModel extends Model{
-
+	
 }

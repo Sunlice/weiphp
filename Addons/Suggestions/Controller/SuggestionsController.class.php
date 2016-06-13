@@ -61,10 +61,11 @@ class SuggestionsController extends AddonsController{
 		$this->display($model['template_list']);
 	}
 
-	function suggestion(){
+	function suggest(){
 		$config = getAddonConfig('Suggestions');
 		$this->assign($config);
 
+		
 		$data['uid'] = $this->mid;
 
 		$user = M('user')->where($data)->find();

@@ -25,9 +25,9 @@ class WeixinModel extends Model {
 			$this->sEncryptMsg = I ( 'get.msg_signature' );
 			
 			if (isset ( $_GET ['appid'] )) {
-				if ($_GET ['appid'] == 'wx570bc396a51b8ff8') {
-					$info ['token'] = 'gh_3c884a361561';
-					$info ['encodingaeskey'] = 'DfEqNBRvzbg8MJdRQCSGyaMp6iLcGOldKFT0r8I6Tnp';
+				if ($_GET ['appid'] == 'wx1e713d7916bd3d33') {
+					$info ['token'] = 'gh_0630a0755169';
+					$info ['encodingaeskey'] = 'ihzCJXGyUU2EVx16utOMUu9SIcWkNK4TIIDlE8oc6AJ ';
 					$info ['appid'] = C ( 'COMPONENT_APPID' );
 				} else {
 					$map ['appid'] = I ( 'get.appid' );

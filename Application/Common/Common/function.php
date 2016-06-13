@@ -1536,7 +1536,7 @@ function getWeixinUserInfo($openid) {
 // 获取公众号的信息
 function get_token_appinfo($token = '', $field = '') {
 	empty ( $token ) && $token = get_token ();
-	if ($token != 'gh_3c884a361561') {
+	if ($token != 'gh_0630a0755169') {
 		$info = D ( 'Common/Public' )->getInfoByToken ( $token, $field );
 	}
 	return $info;
@@ -1557,7 +1557,7 @@ function get_access_token($token = '', $update = false) {
 	$info = get_token_appinfo ( $token );
 	
 	// 微信开放平台一键绑定
-	if ($token == 'gh_3c884a361561' || $info ['is_bind']) {
+	if ($token == 'gh_0630a0755169' || $info ['is_bind']) {
 		$access_token = get_authorizer_access_token ( $info ['appid'], $info ['authorizer_refresh_token'], $update );
 	} else {
 		$access_token = get_access_token_by_apppid ( $info ['appid'], $info ['secret'], $update );

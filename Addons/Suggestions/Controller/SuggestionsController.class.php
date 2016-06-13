@@ -64,13 +64,15 @@ class SuggestionsController extends AddonsController{
 	function suggest(){
 		$config = getAddonConfig('Suggestions');
 		$this->assign($config);
-
+		$param['token'] = get_token();
+		$param['openid'] = get_openid();
 		
+
 		$data['uid'] = $this->mid;
 
 		$user = M('user')->where($data)->find();
 		$this->assign('user',$user);
-
+		
 		if(IS_POST){
 			$truename   =   I('truename');
 			if($config['need_truename'] && !empty($truename)){

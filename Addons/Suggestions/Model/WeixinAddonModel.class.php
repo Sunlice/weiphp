@@ -20,7 +20,7 @@ class WeixinAddonModel extends WeixinModel{
 			'PicUrl'        =>  'http://weiphp.cn/Public/Home/images/about/logo.jpg',
 			'Url'           =>  $url
 		];
-
+		
 		$res = $this->replyNews($articles);
 	}
 }

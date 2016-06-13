@@ -28,7 +28,7 @@ class WeixinController extends HomeController {
 		addWeixinLog ( $data, $GLOBALS ['HTTP_RAW_POST_DATA'] );
 		
 		// 初始化用户
-		$data ['ToUserName'] == 'gh_3c884a361561' || $this->init_follow ( $data );
+		$data ['ToUserName'] == 'gh_0630a0755169' || $this->init_follow ( $data );
 		// 回复数据
 		$this->reply ( $data, $weixin );
 		
@@ -70,7 +70,7 @@ class WeixinController extends HomeController {
 			// 数据保存到消息管理中
 			M ( 'weixin_message' )->add ( $data );
 		}
-		if ($data ['ToUserName'] == 'gh_3c884a361561' || $data ['appid'] == 'wx570bc396a51b8ff8') {
+		if ($data ['ToUserName'] == 'gh_0630a0755169' || $data ['appid'] == 'wx570bc396a51b8ff8') {
 			$addons [$key] = 'PublicBind';
 		}
 		// 通过获取上次缓存的用户状态来定位处理的插件

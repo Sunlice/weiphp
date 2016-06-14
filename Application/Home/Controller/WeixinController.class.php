@@ -11,6 +11,7 @@ class WeixinController extends HomeController {
 	private $data = array ();
 	public function index() {
 		// 删除微信传递的token干扰
+
 		unset ( $_REQUEST ['token'] );
 		$weixin = D ( 'Weixin' );
 		// 获取数据
@@ -31,7 +32,7 @@ class WeixinController extends HomeController {
 		$data ['ToUserName'] == 'gh_0630a0755169' || $this->init_follow ( $data );
 		// 回复数据
 		$this->reply ( $data, $weixin );
-		
+		dump($data);
 		// 客服接口群发消息：未发送成功的消息给用户重新发
 		$this->sendOldMessage ( $data ['ToUserName'], $data ['FromUserName'] );
 		// 结束程序。防止oneThink框架的调试信息输出

@@ -26,7 +26,7 @@ class WeixinModel extends Model {
 			
 			if (isset ( $_GET ['appid'] )) {
 				if ($_GET ['appid'] == 'wx1e713d7916bd3d33') {
-					$info ['token'] = 'gh_0630a0755169';
+					$info ['token'] = 'gh_1234567';
 					$info ['encodingaeskey'] = 'ihzCJXGyUU2EVx16utOMUu9SIcWkNK4TIIDlE8oc6AJ ';
 					$info ['appid'] = C ( 'COMPONENT_APPID' );
 				} else {

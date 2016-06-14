@@ -1536,7 +1536,7 @@ function getWeixinUserInfo($openid) {
 // 获取公众号的信息
 function get_token_appinfo($token = '', $field = '') {
 	empty ( $token ) && $token = get_token ();
-	if ($token != 'gh_0630a0755169') {
+	if ($token != 'gh_1234567') {
 		$info = D ( 'Common/Public' )->getInfoByToken ( $token, $field );
 	}
 	return $info;
@@ -1553,11 +1553,11 @@ function get_token_type($token = '') {
 // 获取access_token，自动带缓存功能
 function get_access_token($token = '', $update = false) {
 	empty ( $token ) && $token = get_token ();
-	
+
 	$info = get_token_appinfo ( $token );
-	
+
 	// 微信开放平台一键绑定
-	if ($token == 'gh_0630a0755169' || $info ['is_bind']) {
+	if ($info ['is_bind']) {
 		$access_token = get_authorizer_access_token ( $info ['appid'], $info ['authorizer_refresh_token'], $update );
 	} else {
 		$access_token = get_access_token_by_apppid ( $info ['appid'], $info ['secret'], $update );
@@ -1579,7 +1579,7 @@ function get_authorizer_access_token($appid, $refresh_token, $update) {
 	if (empty ( $appid )) {
 		return 0;
 	}
-	
+
 	$key = 'authorizer_access_token_' . $appid;
 	$res = S ( $key );
 	if ($res !== false && ! $update)
@@ -1612,8 +1612,9 @@ function get_access_token_by_apppid($appid, $secret, $update = false) {
 	$res = S ( $key );
 	if ($res !== false && ! $update)
 		return $res;
-	
+
 	$url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&secret=' . $secret . '&appid=' . $appid;
+
 	$tempArr = json_decode ( file_get_contents ( $url ), true );
 	if (@array_key_exists ( 'access_token', $tempArr )) {
 		S ( $key, $tempArr ['access_token'], $tempArr ['expires_in'] );

@@ -26,7 +26,7 @@ if (! empty ( $_GET ['echostr'] ) && ! empty ( $_GET ["signature"] ) && ! empty 
 	$nonce = $_GET ["nonce"];
 	
 	$tmpArr = array (
-			'Xingluo@)!&',
+			'xingluo2016haha',
 			$timestamp,
 			$nonce 
 	);
